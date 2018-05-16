@@ -2,10 +2,10 @@
 
 }
 .b-project-list {
-  border-top: 2px solid #1abc9c;
-  border-left: 2px solid #ccc;
-  border-right: 2px solid #ccc;
-  border-bottom: 2px solid #ccc;
+  border-top: 1px solid #1abc9c;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
   background: white;
   padding: 20px;
 }
