@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ProjectListService } from '../project-list/services/project-list.service';
-import { Project } from '../project-list/models/project.models';
-import { Http, RequestOptions, Headers } from '@angular/http';
+import { IssuesListServices } from '../issues-list/services/issues-list.service';
+import { Issue } from '../issues-list/models/issue.models'
+import { Http, RequestOptions, Headers} from '@angular/http';
+
 
 
 @Component({
@@ -11,19 +12,19 @@ import { Http, RequestOptions, Headers } from '@angular/http';
 })
 export class IssuesListComponent implements OnInit {
   isLoading = true;
- project:Array<Project>;
-  constructor(private _projectListServices: ProjectListService,
+ issues:Array<Issue>;
+  constructor(private _issuesListServices: IssuesListServices,
   private _http: Http) { }
   
   ngOnInit() {
-    this.getAllproject();
+    this.getAllissues();
   }
 
-  getAllproject(){
-    this._projectListServices.getAll().subscribe(
-      (data: Project[]) =>{
+  getAllissues(){
+    this._issuesListServices.getAll().subscribe(
+      (data: Issue[]) =>{
         //next
-        this.project = data;
+        this.issues = data;
         this.isLoading = false;
       },
       err => {
@@ -36,15 +37,16 @@ export class IssuesListComponent implements OnInit {
     );
   }
 
-  onDeleteProject(project: Project){
-    this._projectListServices.deleteProject(project).subscribe((data) =>{
+  onDeleteIssues(issues: Issue){
+    this._issuesListServices.deleteIssue(issues).subscribe((data) =>{
     console.log(data);
-    this.getAllproject();
+    this.getAllissues();
   });
   }
 
-    setData(sortedProjects){
-      this.project = sortedProjects;
+    setData(sortedIssues){
+      this.issues = sortedIssues;
     }
 
 }
+

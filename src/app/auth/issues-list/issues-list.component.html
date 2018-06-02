@@ -5,41 +5,40 @@
 </div>
 <ng-template #elseBlock> 
   <div class="margin-bottom-xs b-project-list-sorting">
-    <app-sorting [data]="projects"
+    <app-sorting [data]="Issue"
                  [elements]="[
-               {name: 'user_id', displayName: 'Usuario'},
+               {name: 'id', displayName: 'Usuario'},
                {name: 'title', displayName: 'Título'},
                {name: 'created_at', displayName: 'Creación'},
                {name: 'updated_at', displayName: 'Actualización'}
                ]" (sortedData)="setData($event)">
     </app-sorting>
   </div>
-  <div class="b-project-list">
-    <h2>Proyectos</h2>
-    <div class="b-project" *ngFor="let project of project">
-      <div class="b-project__title-container">
-        <a>
-          <h3 class="b-project__title">{{ project.title }}</h3>
+  <div class="b-issues-list margin-top-sm">
+    <h2>Issues</h2>
+    <div class="b-issue" *ngFor="let issue of issues">
+      <div class="b-issue__title-container">
+        <a href="">
+          <h3 class="b-issue__title">{{ issue.title }}</h3>
         </a>
       </div>
-      <div class="b-project__description">
-        {{ project.description }}
+      <div class="b-issue__description">
+        {{ issue.description }}
       </div>
-      <div class="b-project__actions">
-        <a (click)="onDeleteProject(project)">
-          <i class="fa fa-trash" aria-hidden="true"></i>
-        </a>
+      <div class="b-issue__status--container">
+        <strong>Status: </strong>
+        <span class="b-issue__status b-issue__status--{{ issue.status }}">
+          {{ issue.status }}
+        </span>
       </div>
     </div>
   </div>
-
-  <div class="clearfix"></div>
-
+  
   <div class="row">
-    <div class="col-md-2 col-md-offset-10 margin-top-sm">
-      <div class="b-btn-new-project overflow-hidden">
-        <button class="btn btn-primary pull-right">
-          Nuevo Proyecto
+    <div class="col-md-2 col-md-offset-10 margin-top-sm margin-bottom-sm">
+      <div class="overflow-hidden">
+        <button class="btn btn-primary pull-right" [routerLink]="['/issues/nuevo']">
+          Nuevo Issue
         </button>
       </div>
     </div>

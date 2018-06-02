@@ -1,30 +1,29 @@
 import { Injectable } from '@angular/core';
 import { Http, RequestOptions, Headers } from '@angular/http';
-
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
-import { Project } from '../models/issues.models';
+import { Issue  } from 'app/auth/issues-list/models/issue.models';
 import { AuthenticationService } from '../../../common/services/authentication.service';
 import { HttpService } from '../../../common/services/http.service';
 
 @Injectable()
-export class  IssuesListComponent extends HttpService{
-    project: Array<Project> = [];
+export class  IssuesListServices extends HttpService{
+    issues: Array< Issue > = [];
     constructor(public _http: Http, public _authService: AuthenticationService ) {
         super(_http);
     }
 
-    getAll(): Observable<Array<Project>> {
+    getAll(): Observable<Array< Issue >> {
 
-        const url = `${this.apiBaseURL}/projects`;
+        const url = `${this.apiBaseURL}/issues`;
         const token = this._authService.user.api_token;
         return  this.get(url,token);
 
     }
 
-deleteProject( project: Project ) {
+    deleteIssue( issues : Issue  ) {
 
-        const url = `${this.apiBaseURL}/projects`;
+        const url = `${this.apiBaseURL}/issues`;
         const token = this._authService.user.api_token;
         return  this._http.delete(url,token);
     }

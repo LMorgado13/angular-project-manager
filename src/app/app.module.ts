@@ -44,7 +44,7 @@ import { SortingComponent } from './common/sorting/sorting.component'
     RouterModule.forRoot(routes),
     Ng2Webstorage
   ],
-  providers: [ProjectListService, AuthenticationService, HttpService,AuthGuard,PublicGuard],
+  providers: [ProjectListService,IssuesListComponent, AuthenticationService, HttpService,AuthGuard,PublicGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
