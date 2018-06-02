@@ -10,6 +10,7 @@ import { ProjectListComponent } from './auth/project-list/project-list.component
 import { HeaderComponent } from './common/header/header.component';
 import { LoaderComponent } from './common/loader/loader.component';
 import { ProjectListService } from './auth/project-list/services/project-list.service';
+import { IssuesListServices } from './auth/issues-list/services/issues-list.service';
 import { LoginComponent } from './public/login/login.component';
 import { routes } from './routes'
 
@@ -44,7 +45,7 @@ import { SortingComponent } from './common/sorting/sorting.component'
     RouterModule.forRoot(routes),
     Ng2Webstorage
   ],
-  providers: [ProjectListService,IssuesListComponent, AuthenticationService, HttpService,AuthGuard,PublicGuard],
+  providers: [ProjectListService, IssuesListServices, AuthenticationService, HttpService,AuthGuard,PublicGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

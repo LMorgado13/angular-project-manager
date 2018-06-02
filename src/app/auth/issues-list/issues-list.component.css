@@ -1,7 +1,7 @@
 .b-project-list-sorting {
 
 }
-.b-project-list {
+.b-issues-list {
   border-top: 1px solid #1abc9c;
   border-left: 1px solid #ccc;
   border-right: 1px solid #ccc;
@@ -10,34 +10,29 @@
   padding: 20px;
 }
 
-.b-project {
+.b-issue {
   overflow: hidden;
   border-bottom: 1px dashed #ccc;
   padding-bottom: 10px;
 }
 
-.b-project__title {
+.b-issue__description {
+  margin-bottom: 10px;
+}
+
+.b-issue__title {
   font-size: 18px;
-  color: #1abc9c;
   line-height: 1.5em;
-}
-
-.b-btn-new-project {
-  height: 40px;
-}
-
-.b-project__actions {
-  margin-top: 10px;
-  background: #f1f1f1;
-  padding: 10px 15px 6px 15px;
-}
-
-.b-project__actions .fa {
-  color: #000;
-  font-size: 20px;
-}
-
-.b-project__actions .fa:hover {
   color: #1abc9c;
-  cursor: pointer;
+}
+
+.b-issue__status {
+  padding: 5px 10px 4px 10px;
+  border-radius: 4px;
+  color: white;
+  font-size: 12px;
+}
+
+.b-issue__status--OPEN {
+  background: #4a6785;
 }
